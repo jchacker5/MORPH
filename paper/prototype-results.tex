@@ -1,0 +1,10 @@
+\section*{9\quad A 30.32M-parameter language prototype}
+We increased the hidden width to 1,728 and retained a single shared Transformer block with 16 attention heads. Matrix products use BF16 with FP32 master weights. The learned model has 30,321,217 trainable parameters. Fixed depths share 30,319,488 parameters and have identical starting backbone tensors for corresponding seeds. The three-seed comparison pairs 512 AdamW updates of four windows, or 131,072 input byte presentations per architecture and seed. The learning rate was 0.0003. Seed 11 continued to a prespecified 2,048 updates, totaling 524,288 input byte presentations. These budgets are small relative to the parameter count.
+
+The original comparison trained fixed four and adaptive. A method-driven supplement trained fixed one and fixed two from scratch under the same data and update schedules. This closes a gap in interpreting shallow exits from weights optimized for four-pass execution. The supplement also evaluated seed 11 on the sonnets and checked the identity of the complete input arrays across versions of the data loader.\par
+\input{wide-rows.tex}
+
+Fixed one, two and four used 3.893, 7.743 and 15.444 estimated inference GFLOPs per window. Training the expected loss at all adaptive exits consumed 4.00 times the arithmetic of fixed one, 2.01 times that of fixed two, and 1.008 times that of fixed four. Equal-step comparisons control data exposure; only fixed four closely matches the adaptive training budget.
+\input{wide-verdict.tex}
+
+\topic{A practical distinction.} A checkpoint can load, generate and score deterministically while still failing a useful comparison. The trained models with the clearest use cases here are the compact grouping-and-memory classifier on the specified inputs and the small byte predictor in the preceding section. On fresh in-distribution synthetic cases the classifier produced 9,999 correct predictions in 10,000 single-example calls. The two-pass Boolean classifier also qualified on its training-range task. The recorded inputs, command lines, seeds, local weights and results are supplied with the model card.
