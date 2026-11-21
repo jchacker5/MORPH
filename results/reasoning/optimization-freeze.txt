@@ -1,0 +1,2 @@
+2026-11-21T05:49:06Z
+417e50452a445f976307bf9aecf9a94415e45f6ff7e1e80c6fa0e455e167ff3e  reasoning/optimization_extension.md

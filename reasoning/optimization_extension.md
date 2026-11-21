@@ -1,0 +1,9 @@
+# Registered longer optimization follow-up on the Boolean reasoning task
+
+The 120-update main pilot produced an apparently constant classifier for seed 17. This follow-up tests whether the initial null finding was an artifact of very short training. The pilot is exploratory context for this follow-up. Freeze these decisions before any follow-up training or evaluation.
+
+Use the original main architecture matrix (seven modes), seeds 17/29/43, lengths 32/64/128, and train-from-scratch fixed/adaptive optimization on exactly the same example stream within each seed. Use 2,400 optimizer updates with batch 24, 57,600 examples per fit. The optimizer is Adam, peak learning rate 0.00045, 100-update linear warm-up from 10%, cosine decay to 10% at the end, and unit global gradient clipping. Keep width, halting objective, native hazard threshold, development calibration rule, and frontier analysis as registered in the original pilot. Dynamic early-exit remains the deployment path. Use new independent random streams for training, threshold calibration and final evaluation with the original sample counts in each split. Reuse no selected checkpoint, never stop based on validation or test quality. Three predeclared initialization seeds are shared with the original pilot; independent test draws are reused across modes and seeds within this follow-up.
+
+A task-specific engineering usability target is at least 95% held-out pooled ID exact accuracy on each training seed. To describe a model as usable across the defined shifts, additionally require at least 90% exact accuracy on each tested length/composition shift on each seed. Rejecting these thresholds need not preclude limited research use.
+
+Archive adaptive seed 17 as a separate runnable checkpoint irrespective of its results. Report both the pilot and follow-up, including matched-FLOP and depth-shuffle results without selecting between them for publication.

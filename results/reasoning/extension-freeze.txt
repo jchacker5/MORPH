@@ -1,0 +1,16 @@
+2026-11-21T05:47:21Z
+6a825d9f1edb2c35057d2179a3e2c8f9138f5286e703d494626773ca06985043  reasoning/scaling_extension.md
+results/reasoning/scale-w1600-adaptive-s17.json
+results/reasoning/scale-w1600-adaptive-s29.json
+results/reasoning/scale-w1600-adaptive-s43.json
+results/reasoning/scale-w1600-fixed4-s17.json
+results/reasoning/scale-w1600-fixed4-s29.json
+results/reasoning/scale-w1600-fixed4-s43.json
+results/reasoning/scale-w2880-fixed4-s17.json
+results/reasoning/scale-w896-adaptive-s17.json
+results/reasoning/scale-w896-adaptive-s29.json
+results/reasoning/scale-w896-adaptive-s43.json
+results/reasoning/scale-w896-fixed4-s17.json
+results/reasoning/scale-w896-fixed4-s29.json
+results/reasoning/scale-w896-fixed4-s43.json
+Clarification: initial scale result files already existed on disk while the asynchronous suite ran. No initial scale evaluation metrics had been opened or inspected by this agent when the extension protocol was frozen. Fresh extension streams are independent of these results.

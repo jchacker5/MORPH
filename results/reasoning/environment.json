@@ -1,0 +1,21 @@
+{
+  "hardware": {
+    "device_name": "Apple M4",
+    "max_recommended_working_set_size": 26800603136,
+    "memory_size": 34359738368,
+    "architecture": "applegpu_g16g",
+    "max_buffer_length": 20100448256,
+    "resource_limit": 499000
+  },
+  "accelerator": "Device(gpu, 0)",
+  "os": "macOS-27.0.1-arm64-arm-64bit",
+  "python": "3.12.12",
+  "packages": {
+    "mlx": "0.32.4",
+    "mlx-metal": "0.32.4",
+    "numpy": "2.5.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "cost_unit": "2 FLOPs per multiply-add, dense square attention; excl. elementwise, optimizer; train=3x forward"
+}

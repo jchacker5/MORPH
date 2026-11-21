@@ -1,0 +1,5 @@
+Audited 56832 per-example inference FLOP costs. Corrected 0 runs.
+Verified run counts: {'main': 21, 'scale': 18, 'long': 45, 'opt': 21, 'usable': 2}
+All four checkpoints reproduce archived test predictions and hard exits.
+Verified 12 development-threshold sensitivity records.
+Reasoning verification passed.

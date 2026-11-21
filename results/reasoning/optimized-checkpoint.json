@@ -1,0 +1,6 @@
+{
+  "width": 64,
+  "mode": "adaptive",
+  "threshold": 0.998,
+  "seed": 17
+}

@@ -1,0 +1,65 @@
+./results/reasoning/main-w64-adaptive-s17.json
+./results/reasoning/main-w64-fixed1-s17.json
+./results/reasoning/main-w64-fixed2-s17.json
+./results/reasoning/main-w64-fixed3-s17.json
+./results/reasoning/main-w64-fixed4-s17.json
+./results/reasoning/main-w32-untied4-s17.json
+./results/reasoning/main-w64-random-s17.json
+./results/reasoning/main-w64-adaptive-s29.json
+./results/reasoning/main-w64-fixed1-s29.json
+./results/reasoning/main-w64-fixed2-s29.json
+./results/reasoning/main-w64-fixed3-s29.json
+./results/reasoning/main-w64-fixed4-s29.json
+./results/reasoning/main-w32-untied4-s29.json
+./results/reasoning/main-w64-random-s29.json
+./results/reasoning/main-w64-adaptive-s43.json
+./results/reasoning/main-w64-fixed1-s43.json
+./results/reasoning/main-w64-fixed2-s43.json
+./results/reasoning/main-w64-fixed3-s43.json
+./results/reasoning/main-w64-fixed4-s43.json
+./results/reasoning/main-w32-untied4-s43.json
+./results/reasoning/main-w64-random-s43.json
+Width-2880 warmed step 0.093 s. Frozen rule selected 16 updates.
+./results/reasoning/scale-w896-fixed4-s17.json
+./results/reasoning/scale-w896-adaptive-s17.json
+./results/reasoning/scale-w896-fixed4-s29.json
+./results/reasoning/scale-w896-adaptive-s29.json
+./results/reasoning/scale-w896-fixed4-s43.json
+./results/reasoning/scale-w896-adaptive-s43.json
+./results/reasoning/scale-w1600-fixed4-s17.json
+./results/reasoning/scale-w1600-adaptive-s17.json
+./results/reasoning/scale-w1600-fixed4-s29.json
+./results/reasoning/scale-w1600-adaptive-s29.json
+./results/reasoning/scale-w1600-fixed4-s43.json
+./results/reasoning/scale-w1600-adaptive-s43.json
+./results/reasoning/scale-w2880-fixed4-s17.json
+Traceback (most recent call last):
+  File "./reasoning/run.py", line 185, in <module>
+    result=execute(**vars(args))
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "./reasoning/run.py", line 157, in execute
+    metrics.append(score(model, name, x,y,c, threshold, scale, record,i))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "./reasoning/run.py", line 113, in score
+    f = forward_flops(model.width, length, depths, adaptive)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "./reasoning/common.py", line 137, in forward_flops
+    total = depth * block
+            ~~~~~~^~~~~~~
+OverflowError: Python integer 6381895680 out of bounds for int32
+Traceback (most recent call last):
+  File "./reasoning/suite.py", line 51, in <module>
+    main()
+  File "./reasoning/suite.py", line 47, in main
+    run(mode,width,seed,steps,True)
+  File "./reasoning/suite.py", line 30, in run
+    subprocess.run(command, check=True)
+  File "~/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['./.venv/bin/python', './reasoning/run.py', '--mode', 'adaptive', '--seed', '17', '--width', '2880', '--steps', '16', '--scale']' returned non-zero exit status 1.
+Width-2880 warmed step 0.093 s. Frozen rule selected 16 updates.
+./results/reasoning/scale-w2880-adaptive-s17.json
+./results/reasoning/scale-w2880-fixed4-s29.json
+./results/reasoning/scale-w2880-adaptive-s29.json
+./results/reasoning/scale-w2880-fixed4-s43.json
+./results/reasoning/scale-w2880-adaptive-s43.json

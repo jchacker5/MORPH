@@ -56,7 +56,7 @@ def scaling():
         vals=info["values"]
         ax.plot([idx-.12,idx,idx+.12],vals,ls="none",marker="o",color=GREY,alpha=.67,markersize=4.8)
         ax.plot([idx-.25,idx+.25],[info["mean"]]*2,lw=2.0,color=TEAL,label="Mean" if idx==0 else None)
-    ax.set_xticks(range(3),["9.65M","30.75M","99.60M"])
+    ax.set_xticks(range(3),["9.65M","30.76M","99.60M"])
     ax.set(xlabel="Parameters in the adaptive Boolean-program model",ylabel="MORPH minus fixed frontier (pp)")
     ax.axhline(0,ls="--",lw=1,color=PLUM); ax.grid(axis="y",alpha=.18)
     ax.yaxis.set_major_locator(MaxNLocator(nbins=5))
