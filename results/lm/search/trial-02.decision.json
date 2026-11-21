@@ -1,0 +1,17 @@
+{
+  "config": {
+    "lr": 0.002,
+    "cost": 0.001,
+    "bias": 0.0
+  },
+  "hypothesis": "Since every validation window exited immediately, reducing the pass cost could reward a second useful transformation.",
+  "trial": 2,
+  "source": {
+    "train.py": "692759ca70374be001f77ad3dd444d253685a9440e2386e0f869b9e816eb50f7",
+    "prepare.py": "8b4726d8db537578a61685fad78b8e981a4a7af31bd670fd909ec2c37efad7f9"
+  },
+  "objective": 2.879142517264257,
+  "status": "discard",
+  "val_bpb": 2.719142517264257,
+  "mean_depth": 4.0
+}

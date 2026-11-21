@@ -1,0 +1,1 @@
+First baseline launch stopped before fitting or evaluating any real sample. MLX 0.32.4 requires functools.partial for the compile decorator with keyword arguments. The revised warm-up preserves the captured optimizer-state dictionary.

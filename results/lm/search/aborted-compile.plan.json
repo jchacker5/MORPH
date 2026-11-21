@@ -1,0 +1,13 @@
+{
+  "config": {
+    "lr": 0.002,
+    "cost": 0.02,
+    "bias": 0.0
+  },
+  "hypothesis": "A recurrent decoder with a modest pass penalty can fit local structure while learning an exit.",
+  "trial": 1,
+  "source": {
+    "train.py": "9387a9500355762d80284303a2d6054e367e651013a1d9663a8dfe2bb8560ca2",
+    "prepare.py": "8b4726d8db537578a61685fad78b8e981a4a7af31bd670fd909ec2c37efad7f9"
+  }
+}

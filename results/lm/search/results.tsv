@@ -1,0 +1,5 @@
+trial	val_bpb	mean_depth	objective	status	hypothesis
+1	2.553702736152506	1.0	2.553702736152506	keep	A recurrent decoder with a modest pass penalty can fit local structure while learning an exit.
+2	2.719142517264257	4.0	2.879142517264257	discard	Since every validation window exited immediately, reducing the pass cost could reward a second useful transformation.
+3	2.6887214616123063	1.0	2.6887214616123063	discard	The low-cost trial switched to uniform depth four. Starting with a continue bias at the incumbent cost may allow useful deeper blocks to train before the first gate saturates.
+4	2.764818625139573	1.0	2.764818625139573	discard	Both previous policies saturated. A slower optimizer may preserve early gate sensitivity and improve the short-budget next-byte score.
