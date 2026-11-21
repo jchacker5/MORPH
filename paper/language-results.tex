@@ -1,0 +1,19 @@
+\section*{7\quad A recurrent decoder trained on natural text}
+We trained a byte-level language model on the first 892,315 bytes of the 1,115,394-byte Tiny Shakespeare corpus. The next tenth was reserved for validation and the final tenth for testing. Each 64-byte input predicts its final 48 next-byte targets. No scored targets overlap and no context crosses a split boundary. The test set contains 111,504 scored bytes. The adaptive policy reads the first 16 positions of the causal window and assigns one depth to its predicted suffix. Nothing after that prefix can affect the gate. \source{https://github.com/karpathy/char-rnn/tree/6f9487a6fe5b420b7ca9afb0d7c078e37c1d1b4e}{Pinned corpus source}.
+
+\topic{Autoresearch.} Following Karpathy's validation-only keep/discard workflow, a 117,793-parameter MLX decoder received four 30-second development trials. The score combined validation bits per byte (BPB, lower is better) with 0.08 BPB per mean pass above two. We retained improvements exceeding 0.005. The baseline scored 2.554 and the successive candidates scored 2.879, 2.689 and 2.765. Reducing the pass penalty sent every window to depth four. The others exited at one. After three consecutive discards the stopping rule froze the baseline settings. A compile error before the first fit was logged separately. Contention mattered: the baseline completed 5,228 updates and the final candidate 1,870. The trial order cannot identify the best hyperparameter at equal training progress.
+
+\begin{center}\begin{tabular}{lrrrr}\toprule
+118K model & Updates & BPB & Passes & Train TFLOPs\\\midrule
+Fixed one & 320 & 3.796 & 1.00 & 0.242 \\
+Fixed two & 320 & 3.701 & 2.00 & 0.447 \\
+Fixed four & 320 & 3.697 & 4.00 & 0.858 \\
+Random & 320 & 3.788 & 2.47 & 0.536 \\
+MORPH & 320 & 3.694 & 1.00 & 0.966 \\
+Fixed two, compute matched & 692 & 3.513 & 2.00 & 0.967 \\
+\bottomrule\end{tabular}\end{center}
+\captext{Three fresh seeds, one held-out segment. The compute-matched two-pass control received more byte presentations. Random training uses one depth per minibatch; random evaluation draws per example. A pass of the 118K block uses about 13.37 million matrix FLOPs per 64-byte context before readout.}
+
+The adaptive-minus-two-pass difference was $-0.007$ BPB [$-0.056$,$+0.042$]. At essentially equal inference arithmetic, the adaptive-training objective improved the one-pass result by 0.102 BPB. Each adaptive seed exited at one on every test window. Training through four exit losses can improve a shallow predictor even when it learns no input-dependent allocation. With nearly equal estimated training arithmetic, the two-pass control was better by 0.180 BPB [0.054,0.307]. Training on a larger number of windows is part of that comparison.
+
+The smoothed bigram scored 3.625 BPB. An interpolated predictor with three prior bytes scored 2.908 BPB. The 320-update neural checkpoint failed the prespecified narrow utility margin of 0.10 BPB over bigram. The held-out test bytes belong to one corpus segment and the three training seeds share that segment. The next page distinguishes this short run from longer text training.
