@@ -41,7 +41,7 @@ Training and scoring use Python 3.12.12 and locked dependencies. The Transformer
 | Longer small LM, external text, 300-second capstone | `python -m lm_followup.run counts`, `replay`, `long`, `capstone`, then `python -m lm_followup.analyze` | [Independent follow-up](results/lm_followup/) |
 | Independently trained shallow 30M controls | [Methods and commands](prototype_controls/README.md) | [30M comparator results](results/prototype_controls/) |
 
-After the original LM fits and prototypes finish, run `python lm/summarize.py` and `python lm/verify.py` to regenerate seed intervals and verify the saved model scores, future-byte invariance, mixed-exit dispatch and generation. Use `python paper/plot.py`, `python paper/make_reasoning_tables.py`, `python paper/make_language_tables.py` and `tectonic paper/MORPH.tex` from the archived project to rebuild the figures and PDF. Costs marked FLOPs or MACs are analytical estimates. Measured latency can vary substantially with other processes on the same Mac.
+After the original LM fits and prototypes finish, run `python lm/summarize.py` and `python lm/verify.py` to regenerate seed intervals and verify the saved model scores, future-byte invariance, mixed-exit dispatch and generation. Use `python paper/plot.py`, `python paper/make_reasoning_tables.py`, `python paper/make_language_tables.py`, `python paper/make_profile_table.py` and `tectonic paper/MORPH.tex` from the archived project to rebuild the figures and PDF. Costs marked FLOPs or MACs are analytical estimates. Measured latency can vary substantially with other processes on the same Mac.
 
 ### Autoresearch
 

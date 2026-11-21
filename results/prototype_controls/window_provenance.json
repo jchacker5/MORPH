@@ -1,0 +1,13 @@
+{
+  "external_source_path_at_registration": "lm_followup/data.py",
+  "preserved_registered_bytes_path": "prototype_controls/sonnets.py",
+  "registered_loader_sha256": "27eccd07ca325e77084c937c8213227dc7af5b255bdf91a2a569232cd01538cf",
+  "reformatted_loader_sha256": "46b9508552dc4c7e0a315ecd2dde246eba2b434327fd17cef3e3b6967bdd2676",
+  "sonnets_shape": [
+    1828,
+    65
+  ],
+  "sonnets_eval_windows_sha256_le_i32": "559da9c2840bf1bed7ac3fd5813c245ab7e7fb980222276f5f0a53b9ed9714d3",
+  "external_windows_equal_after_reformat": true,
+  "plays_eval_windows_sha256_le_i32": "dfc0acdf36df10de3eedd483e0fc6189153fa83057bd93b770117df7dc584439"
+}

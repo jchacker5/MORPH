@@ -1,0 +1,42 @@
+{
+  "depth": 1,
+  "seed": 11,
+  "steps": 2048,
+  "lr": 0.0003,
+  "batch": 4,
+  "parameters": 30319488,
+  "input_bytes": 524288,
+  "scored_train_bytes": 393216,
+  "train_flops": 95670396518400,
+  "last_train_loss": 2.689600944519043,
+  "training_peak_interval_mlx_bytes": 1092474056,
+  "training_seconds_including_compile": 255.9699265420204,
+  "scores": {
+    "plays": {
+      "bpb": 3.75631492132517,
+      "histogram": [
+        2323,
+        0,
+        0,
+        0
+      ],
+      "examples": 2323,
+      "scored_bytes": 111504,
+      "mean_depth": 1.0,
+      "inference_flops_per_window": 3892838400.0
+    },
+    "sonnets": {
+      "bpb": 3.6406645758529885,
+      "histogram": [
+        1828,
+        0,
+        0,
+        0
+      ],
+      "examples": 1828,
+      "scored_bytes": 87744,
+      "mean_depth": 1.0,
+      "inference_flops_per_window": 3892838400.0
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "matrix_counts": {
+    "reasoning_main": 21,
+    "reasoning_scale": 18,
+    "reasoning_opt": 21,
+    "reasoning_long": 45,
+    "reasoning_usable": 2,
+    "grouping_condition_rows": 42,
+    "routing_condition_rows": 12,
+    "memory_condition_rows": 180,
+    "memory_extension_condition_rows": 45
+  },
+  "primary_joint_contrast_pp": 4.093424479166667,
+  "machine": {
+    "device_name": "Apple M4",
+    "max_recommended_working_set_size": 26800603136,
+    "memory_size": 34359738368,
+    "architecture": "applegpu_g16g",
+    "max_buffer_length": 20100448256,
+    "resource_limit": 499000
+  },
+  "os": "macOS-27.0.1-arm64-arm-64bit",
+  "python": "3.12.12",
+  "weights": {
+    "results/joint/gm_seed41.npz": {
+      "bytes": 9056,
+      "sha256": "3f17486872f1b53df222f9c90e81b7f5947e64e9ea4a452e13f97499617eb503"
+    },
+    "results/joint/joint_seed41.npz": {
+      "bytes": 9056,
+      "sha256": "2b0575d3ad6765d3fa4e7135e19aabd5dcbd5e27836e5fc21cdd92c4f83d6a7c"
+    },
+    "results/lm/adaptive-11.safetensors": {
+      "bytes": 472355,
+      "sha256": "fb2ba54dd165ae0a980cb5e5b80d51c99d181495c3c1f203fb4f49a823d7992a"
+    },
+    "results/lm/prototype/adaptive-11-2048.safetensors": {
+      "bytes": 121286138,
+      "sha256": "c8e6a25e9587bdd4b11763b1575f0e523ca3e77cd1972e4fc1bea85fbd6a1aca"
+    },
+    "results/lm/prototype/adaptive-11-512.safetensors": {
+      "bytes": 121286138,
+      "sha256": "cebe695b0c240a63e2b6a55eb8b0188ef49b49f32bf3c9240504f9cad851bb23"
+    },
+    "results/lm_followup/capstone.safetensors": {
+      "bytes": 472355,
+      "sha256": "f5427a265db93ae777e7fcffc1e748552174ca205b92a9fa0a62c1b526eeff03"
+    },
+    "results/lm_followup/long-adaptive-11.safetensors": {
+      "bytes": 472355,
+      "sha256": "9b33f9add07d7a9cd47c4f81db980cdef037cd4f694198f384b0bb5b7ce06b4a"
+    },
+    "results/mechanisms/recall-seed11-k4.npz": {
+      "bytes": 2268,
+      "sha256": "fdd25528800fda0f11cc05c32f3ae2f9e9ebdc88746896fcfe28f3135a8592c8"
+    },
+    "results/reasoning/optimized-reasoning-seed17.safetensors": {
+      "bytes": 203213,
+      "sha256": "96e6ffb2dc3422c2c9a221d3b5d98e801cbd741d84fe79be1c71886e0e184102"
+    },
+    "results/reasoning/qualified-adaptive-reasoning-seed17.safetensors": {
+      "bytes": 203213,
+      "sha256": "4b1fdef4e5870c963349e1be250c4d98d716cebac1a7f35f55a1b350e360ef0a"
+    },
+    "results/reasoning/qualified-fixed2-reasoning-seed17.safetensors": {
+      "bytes": 202812,
+      "sha256": "96e0fa407b4afa9167008b29fdb4c3b19b55e8e2533cd7f41589abc835ca5b4d"
+    },
+    "results/reasoning/reasoning-seed17.safetensors": {
+      "bytes": 203213,
+      "sha256": "99950b9bdb9d536460452d624a4a7e5104803fd044da6fb25778ac50028c8ff0"
+    }
+  }
+}

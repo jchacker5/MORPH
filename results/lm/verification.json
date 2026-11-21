@@ -1,0 +1,50 @@
+{
+  "checkpoints": [
+    {
+      "max_prefix_logit_change_after_suffix_mutation": 0.0,
+      "max_selected_exit_logit_difference": 0.0,
+      "checked_examples": 12,
+      "scale": "118K",
+      "steps": 320,
+      "sha256": "fb2ba54dd165ae0a980cb5e5b80d51c99d181495c3c1f203fb4f49a823d7992a",
+      "file_bytes": 472355,
+      "reloaded_bpb": 3.7117654759827308,
+      "reloaded_exit_histogram": [
+        2323,
+        0,
+        0,
+        0
+      ],
+      "identical_seeded_sample": true,
+      "sample_sha256": "b80542f4940c75733ea3f6f8632dfc198032eb7da6957b56b24c21b5f27b5e09"
+    },
+    {
+      "max_prefix_logit_change_after_suffix_mutation": 0.0,
+      "max_selected_exit_logit_difference": 0.0,
+      "checked_examples": 12,
+      "scale": "30M",
+      "steps": 2048,
+      "sha256": "c8e6a25e9587bdd4b11763b1575f0e523ca3e77cd1972e4fc1bea85fbd6a1aca",
+      "file_bytes": 121286138,
+      "reloaded_bpb": 3.8675484128221163,
+      "reloaded_exit_histogram": [
+        0,
+        0,
+        0,
+        2323
+      ],
+      "identical_seeded_sample": true,
+      "sample_sha256": "7a4957ef896d34d25dd982336f44e265e40972f1cc073140e628b3f0092a2282"
+    }
+  ],
+  "mixed_reordering_exits": [
+    4,
+    2,
+    1,
+    3,
+    2,
+    4,
+    3,
+    1
+  ]
+}

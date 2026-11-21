@@ -1,0 +1,56 @@
+mode='adaptive' seed=11 step=128 elapsed 27.66s
+mode='adaptive' seed=11 step=256 elapsed 50.41s
+mode='adaptive' seed=11 step=384 elapsed 73.66s
+mode='adaptive' seed=11 step=512 elapsed 97.95s
+Saved adaptive 11 512
+mode='adaptive' seed=11 step=640 elapsed 39.33s
+mode='adaptive' seed=11 step=768 elapsed 84.65s
+mode='adaptive' seed=11 step=896 elapsed 136.29s
+mode='adaptive' seed=11 step=1024 elapsed 184.08s
+mode='adaptive' seed=11 step=1152 elapsed 231.48s
+mode='adaptive' seed=11 step=1280 elapsed 288.11s
+mode='adaptive' seed=11 step=1408 elapsed 341.03s
+mode='adaptive' seed=11 step=1536 elapsed 383.02s
+mode='adaptive' seed=11 step=1664 elapsed 423.37s
+mode='adaptive' seed=11 step=1792 elapsed 466.61s
+mode='adaptive' seed=11 step=1920 elapsed 508.44s
+mode='adaptive' seed=11 step=2048 elapsed 549.71s
+Saved adaptive 11 2048
+mode='4' seed=11 step=128 elapsed 33.47s
+mode='4' seed=11 step=256 elapsed 65.95s
+mode='4' seed=11 step=384 elapsed 108.44s
+mode='4' seed=11 step=512 elapsed 151.17s
+Saved 4 11 512
+mode='4' seed=11 step=640 elapsed 29.24s
+mode='4' seed=11 step=768 elapsed 56.32s
+mode='4' seed=11 step=896 elapsed 85.56s
+mode='4' seed=11 step=1024 elapsed 115.28s
+mode='4' seed=11 step=1152 elapsed 144.73s
+mode='4' seed=11 step=1280 elapsed 174.40s
+mode='4' seed=11 step=1408 elapsed 203.79s
+mode='4' seed=11 step=1536 elapsed 233.54s
+mode='4' seed=11 step=1664 elapsed 262.02s
+mode='4' seed=11 step=1792 elapsed 290.31s
+mode='4' seed=11 step=1920 elapsed 316.34s
+mode='4' seed=11 step=2048 elapsed 335.84s
+Saved 4 11 2048
+mode='adaptive' seed=23 step=128 elapsed 20.83s
+mode='adaptive' seed=23 step=256 elapsed 42.01s
+mode='adaptive' seed=23 step=384 elapsed 63.17s
+mode='adaptive' seed=23 step=512 elapsed 83.70s
+Saved adaptive 23 512
+mode='4' seed=23 step=128 elapsed 13.31s
+mode='4' seed=23 step=256 elapsed 23.73s
+mode='4' seed=23 step=384 elapsed 34.25s
+mode='4' seed=23 step=512 elapsed 44.82s
+Saved 4 23 512
+mode='adaptive' seed=37 step=128 elapsed 11.86s
+mode='adaptive' seed=37 step=256 elapsed 24.24s
+mode='adaptive' seed=37 step=384 elapsed 36.57s
+mode='adaptive' seed=37 step=512 elapsed 47.69s
+Saved adaptive 37 512
+mode='4' seed=37 step=128 elapsed 9.87s
+mode='4' seed=37 step=256 elapsed 19.80s
+mode='4' seed=37 step=384 elapsed 29.52s
+mode='4' seed=37 step=512 elapsed 39.21s
+Saved 4 37 512

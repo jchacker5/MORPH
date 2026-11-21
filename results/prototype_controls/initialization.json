@@ -1,0 +1,30 @@
+[
+  {
+    "seed": 11,
+    "initial_backbone_tensors_identical": 13,
+    "controller_only_tensors": 2,
+    "identical_backbone_parameters": 30319488,
+    "start_indices_sha256_little_endian_int64": {
+      "512": "c4f2efd7f7b02ef2dc2486057867fbecff208933f1d721b08c01b9450e58161b",
+      "2048": "8dc41cacf8e7c2c2cd20347862c248908680a5484d0426764d33f35c6fb657f8"
+    }
+  },
+  {
+    "seed": 23,
+    "initial_backbone_tensors_identical": 13,
+    "controller_only_tensors": 2,
+    "identical_backbone_parameters": 30319488,
+    "start_indices_sha256_little_endian_int64": {
+      "512": "43f83aeb67c2b0444390c7fa3e7cd9e88f689c64f5240702d98d60d71037af3a"
+    }
+  },
+  {
+    "seed": 37,
+    "initial_backbone_tensors_identical": 13,
+    "controller_only_tensors": 2,
+    "identical_backbone_parameters": 30319488,
+    "start_indices_sha256_little_endian_int64": {
+      "512": "c9fa67d0ff07187a96ce587ca93fbcf072f284dabad153dcb013d61e1ba6eae4"
+    }
+  }
+]

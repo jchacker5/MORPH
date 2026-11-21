@@ -1,0 +1,50 @@
+depth=1 seed=11 step=256 elapsed=35.5s
+depth=1 seed=11 step=512 elapsed=67.2s
+saved fixed1-11-512
+depth=1 seed=11 step=768 elapsed=97.2s
+depth=1 seed=11 step=1024 elapsed=128.3s
+depth=1 seed=11 step=1280 elapsed=160.1s
+depth=1 seed=11 step=1536 elapsed=193.8s
+depth=1 seed=11 step=1792 elapsed=225.7s
+depth=1 seed=11 step=2048 elapsed=256.0s
+saved fixed1-11-2048
+Traceback (most recent call last):
+  File "./prototype_controls/run.py", line 129, in <module>
+    main()
+  File "./prototype_controls/run.py", line 113, in main
+    pin()
+  File "./prototype_controls/run.py", line 33, in pin
+    raise ValueError("Registered dependency changed: "+path)
+ValueError: Registered dependency changed: lm_followup/data.py
+Traceback (most recent call last):
+  File "./prototype_controls/run.py", line 129, in <module>
+    main()
+  File "./prototype_controls/run.py", line 122, in main
+    subprocess.run([sys.executable,__file__,"--depth",str(depth),"--seed",str(seed)],check=True)
+  File "~/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['./.venv/bin/python', './prototype_controls/run.py', '--depth', '1', '--seed', '23']' returned non-zero exit status 1.
+depth=1 seed=23 step=256 elapsed=33.2s
+depth=1 seed=23 step=512 elapsed=62.0s
+saved fixed1-23-512
+depth=1 seed=37 step=256 elapsed=30.4s
+depth=1 seed=37 step=512 elapsed=60.7s
+saved fixed1-37-512
+depth=2 seed=11 step=256 elapsed=41.1s
+depth=2 seed=11 step=512 elapsed=78.0s
+saved fixed2-11-512
+depth=2 seed=11 step=768 elapsed=115.3s
+depth=2 seed=11 step=1024 elapsed=153.2s
+depth=2 seed=11 step=1280 elapsed=194.6s
+depth=2 seed=11 step=1536 elapsed=239.7s
+depth=2 seed=11 step=1792 elapsed=278.3s
+depth=2 seed=11 step=2048 elapsed=316.8s
+saved fixed2-11-2048
+depth=2 seed=23 step=256 elapsed=40.2s
+depth=2 seed=23 step=512 elapsed=72.6s
+saved fixed2-23-512
+depth=2 seed=37 step=256 elapsed=39.3s
+depth=2 seed=37 step=512 elapsed=74.7s
+saved fixed2-37-512
+reloaded adaptive-11-512
+reloaded adaptive-11-2048

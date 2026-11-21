@@ -1,0 +1,36 @@
+{
+  "source_checkpoint_sha256": "c8e6a25e9587bdd4b11763b1575f0e523ca3e77cd1972e4fc1bea85fbd6a1aca",
+  "seed": 11,
+  "steps": 2048,
+  "train_flops": 382681840877568,
+  "input_bytes": 524288,
+  "parameters": 30321217,
+  "scores": {
+    "plays": {
+      "bpb": 3.8675484128221163,
+      "histogram": [
+        0,
+        0,
+        0,
+        2323
+      ],
+      "examples": 2323,
+      "scored_bytes": 111504,
+      "mean_depth": 4.0,
+      "inference_flops_per_window": 15443961984.0
+    },
+    "sonnets": {
+      "bpb": 3.769171829497238,
+      "histogram": [
+        0,
+        0,
+        0,
+        1828
+      ],
+      "examples": 1828,
+      "scored_bytes": 87744,
+      "mean_depth": 4.0,
+      "inference_flops_per_window": 15443961984.0
+    }
+  }
+}

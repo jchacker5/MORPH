@@ -1,0 +1,12 @@
+\begin{center}\small\begin{tabular}{llrrrr}\toprule
+Model & Policy & Batch & Median ms & P90 ms & Peak MiB\\\midrule
+118K & Learned & 1 & 0.82 & 0.95 & 1.6 \\
+118K & Fixed 1 & 1 & 0.59 & 0.66 & 1.7 \\
+118K & Learned & 16 & 1.10 & 1.37 & 8.1 \\
+118K & Fixed 1 & 16 & 0.82 & 1.10 & 14.6 \\
+30M & Learned & 1 & 15.95 & 16.78 & 218.5 \\
+30M & Fixed 4 & 1 & 14.83 & 15.65 & 372.5 \\
+30M & Learned & 16 & 94.27 & 103.24 & 278.4 \\
+30M & Fixed 4 & 16 & 94.35 & 103.93 & 603.7 \\
+\bottomrule\end{tabular}\end{center}
+\captext{Milliseconds per batch. Each learned policy is paired here with a forced exit at its observed depth, one for the small checkpoint and four for the larger one. Full results include forced depths one, two and four for both checkpoints.}

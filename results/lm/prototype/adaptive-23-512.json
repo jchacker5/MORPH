@@ -1,0 +1,83 @@
+{
+  "mode": "adaptive",
+  "seed": 23,
+  "steps": 512,
+  "lr": 0.0003,
+  "parameters": 30321217,
+  "cost": 0.02,
+  "bias": 0.0,
+  "input_bytes": 131072,
+  "scored_train_bytes": 98304,
+  "training_seconds_including_first_compile": 83.70157029200345,
+  "training_peak_mlx_bytes": 1240268650,
+  "train_flops": 95670460219392,
+  "last_train_loss": 3.219374656677246,
+  "test": {
+    "bpb": 4.480595739167288,
+    "histogram": [
+      0,
+      0,
+      0,
+      2323
+    ],
+    "examples": 2323,
+    "scored_bytes": 111504,
+    "mean_depth": 4.0,
+    "inference_flops_per_window": 15443961984.0
+  },
+  "forced_exits": {
+    "1": {
+      "bpb": 6.299684577241145,
+      "histogram": [
+        2323,
+        0,
+        0,
+        0
+      ],
+      "examples": 2323,
+      "scored_bytes": 111504,
+      "mean_depth": 1.0,
+      "inference_flops_per_window": 3892838400.0
+    },
+    "2": {
+      "bpb": 4.747842928390399,
+      "histogram": [
+        0,
+        2323,
+        0,
+        0
+      ],
+      "examples": 2323,
+      "scored_bytes": 111504,
+      "mean_depth": 2.0,
+      "inference_flops_per_window": 7743209472.0
+    },
+    "3": {
+      "bpb": 4.494621981807712,
+      "histogram": [
+        0,
+        0,
+        2323,
+        0
+      ],
+      "examples": 2323,
+      "scored_bytes": 111504,
+      "mean_depth": 3.0,
+      "inference_flops_per_window": 11593580544.0
+    },
+    "4": {
+      "bpb": 4.480595739167288,
+      "histogram": [
+        0,
+        0,
+        0,
+        2323
+      ],
+      "examples": 2323,
+      "scored_bytes": 111504,
+      "mean_depth": 4.0,
+      "inference_flops_per_window": 15443951616.0
+    }
+  },
+  "batch1_median_ms": 18.58700002776459
+}
