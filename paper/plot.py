@@ -32,7 +32,7 @@ def ood():
     ys=[m[k]["id"]["accuracy"]["mean"]*100 for k in order]
     ax.plot(xs,ys,color=GREY,lw=1.3,marker="o",label="Fixed recurrent depths")
     for i,(x,y) in enumerate(zip(xs,ys)): ax.annotate(str(i+1),(x,y),xytext=(4,4),textcoords="offset points",color=GREY)
-    for k,label,color,mark in [("adaptive","MORPH",TEAL,"D"),("untied4","Untied four",PLUM,"s")]:
+    for k,label,color,mark in [("adaptive","MORPH",TEAL,"D"),("untied4","Untied four",PLUM,"s"),("random","Random depth","#926722","^")]:
         a=m[k]["id"]
         ax.scatter(np.asarray(a["flops"]["values"])/1e6,np.asarray(a["accuracy"]["values"])*100,s=11,color=color,alpha=.40,zorder=3)
         ax.scatter(a["flops"]["mean"]/1e6,a["accuracy"]["mean"]*100,color=color,marker=mark,s=35,label=label,zorder=4)

@@ -56,7 +56,9 @@ def main():
         reports.append(report)
     # Force all four bins within one mixed batch using an auditable deterministic
     # test double. Even a collapsed trained policy must exercise the gather path.
-    class DispatchCheck(Decoder):
+    class DispatchCheck:
+        infer = Decoder.infer
+
         def embed(self,x):
             return x[:,:,None].astype(mx.float32)
         def block(self,h):
@@ -66,8 +68,7 @@ def main():
             return (mx.floor(code/10)>=(code%10)+1).astype(mx.float32)
         def logits(self,h):
             return h
-    toy=object.__new__(DispatchCheck)
-    nn.Module.__init__(toy)
+    toy=DispatchCheck()
     tags=mx.array([3,1,0,2,1,3,2,0])
     toy_x=mx.broadcast_to(tags[:,None],(8,WINDOW))
     outputs,exits=toy.infer(toy_x,"adaptive",last=True)
