@@ -1,4 +1,5 @@
 """MLX adaptive prefix-conditioned causal decoder, search trial and final-training entry points."""
+from functools import partial
 import argparse
 import json
 import math
@@ -130,7 +131,7 @@ def fit(mode, seed, lr, cost, bias, steps=None, seconds=None):
     opt = optim.AdamW(learning_rate=lr, weight_decay=.01)
     gradients = nn.value_and_grad(model, model.objective)
     def make_update(depth):
-        @mx.compile(inputs=[model.state,opt.state],outputs=[model.state,opt.state])
+        @partial(mx.compile, inputs=[model.state,opt.state],outputs=[model.state,opt.state])
         def update(data):
             loss, grads = gradients(data,mode,depth,cost)
             opt.update(model, grads)
@@ -148,7 +149,7 @@ def fit(mode, seed, lr, cost, bias, steps=None, seconds=None):
         loss = fn(mx.zeros((BATCH,WINDOW+1),mx.int32))
         mx.eval(loss,model.parameters(),opt.state)
     model.update(original)
-    opt.state = original_opt
+    opt.state.update(original_opt)
     data = split_data("train")
     mx.reset_peak_memory()
     started, step, work = time.perf_counter(), 0, 0.0
