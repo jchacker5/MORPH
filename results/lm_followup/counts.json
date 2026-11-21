@@ -1,0 +1,25 @@
+{
+  "protocol_sha256": "f3253b86e68685a165d8a1af78e5e3c966fa009d31fc7af4b84353847a795c6b",
+  "training_bytes": 892315,
+  "source_sha256": "e3580b25135e2d89467dd4cef0ccdcdd5f50f8779247fc24612ef653d27dc9d5",
+  "sonnets": {
+    "bpb": {
+      "1": 3.4800650516008114,
+      "3": 2.429892043800582
+    },
+    "examples": 1828,
+    "scored_bytes": 87744
+  },
+  "repeat_test": {
+    "bpb": {
+      "1": 3.6250734457442184,
+      "3": 2.9084191149031553
+    },
+    "examples": 2323,
+    "scored_bytes": 111504
+  },
+  "poem_count": 154,
+  "clean_bytes": 93885,
+  "cleaned_poems_delimited_by_nul_sha256": "44e0b819d6156b661427e843b292d212a1796d8b93b8084b186b1bedc4ad5f18",
+  "exact_external_windows_present_in_training": 0
+}
