@@ -1,0 +1,104 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.86in,top=0.82in,bottom=0.85in]{geometry}
+\usepackage{booktabs,tabularx,array,graphicx,amsmath,xcolor,hyperref}
+\usepackage{fancyhdr}
+\definecolor{ink}{HTML}{1C313C}
+\definecolor{teal}{HTML}{086964}
+\definecolor{grey}{HTML}{4B6068}
+\hypersetup{colorlinks=true,urlcolor=teal,linkcolor=teal,pdfauthor={Joseph Defendre},pdftitle={MORPH: Learning to Organize Computation in Neural Networks}}
+\newcommand{\topic}[1]{\par\medskip\noindent\textbf{#1}\enspace}
+\newcommand{\captext}[1]{{\small\color{grey}#1\par}}
+\newcommand{\source}[2]{\href{#1}{#2}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{5.2pt}
+\setlength{\emergencystretch}{2em}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small\color{grey}MORPH}\fancyhead[R]{\small\color{grey}Joseph Defendre}
+\fancyfoot[R]{\small\color{grey}\thepage}\renewcommand{\headrulewidth}{0.2pt}
+\begin{document}
+\thispagestyle{plain}
+{\sffamily\small\color{teal}RESEARCH REPORT\quad /\quad NOVEMBER 21, 2026}\par\vspace{6pt}
+{\fontsize{27}{31}\selectfont\bfseries\color{ink}MORPH: Learning to Organize Computation in Neural Networks\par}
+\vspace{5pt}{\large Joseph Defendre}\par
+\textit{Meta-Optimized Reconfigurable Processing Hierarchy}\par
+\input{abstract.tex}
+\section*{1\quad What would count as evidence?}
+A system that processes different inputs differently may still waste compute. We asked whether a trained policy can improve the accuracy available at a given cost, whether its decisions help the inputs receiving them, and whether those decisions survive a change in task difficulty. These are distinct empirical requirements. Comparing a model only with a deep, uniformly expensive baseline can reward an early exit even when a shallow network solves the task better.
+
+We conducted eight experiments on one Apple M4 with 32 GiB of unified memory. Two recurrent Transformers implemented adaptive depth for reasoning and natural text. Separate component probes isolated grouping, routing and retention. A fourth benchmark implemented all four mechanisms together in a small recurrent classifier. Each predictor started from random initialization. The natural-language models learned depth alone. Results from the integrated classifier describe its synthetic task.
+
+\topic{Protocol and comparisons.} Local, hashed or Git-versioned protocols fixed the targets before their respective runs. We report the initial runs and label the later investigations prompted by them. Three training seeds are the replication unit. Unless stated otherwise, brackets give descriptive two-sided, paired 95\% Student intervals with two degrees of freedom. These intervals can be wide and do not cover uncertainty over other datasets, task generators or machine types. We report both unfavorable and favorable outcomes.
+\newpage
+\section*{2\quad From halting probabilities to actual work}
+Let $h_j$ be the recurrent state after pass $j$. The controller predicts a hazard $q_j=\sigma(g_\phi(h_j))$ for $j<4$ and sets $q_4=1$. The probability of stopping at $j$ and the training objective are
+\[
+p_j=q_j\prod_{i<j}(1-q_i),\qquad
+L=\sum_{j=1}^4 p_j\bigl(\mathrm{CE}(y,f_\theta(h_j))+\lambda j\bigr).
+\]
+The relaxation computes all four possible exits during training. At inference the implementation applies a threshold, removes exited examples from the active batch and executes additional blocks only for survivors. A controller that exits at the same depth for every input implements a fixed inference policy.
+
+\topic{Reasoning.} A causal decoder reads an initial bit, a random sequence of unary Boolean instructions interleaved with distractors, and a final query. The instructions copy, invert, set to zero or set to one. Chance accuracy is 50\%. Some reset instructions erase earlier dependencies, so the number of instructions measures nominal composition length. Training sequences have 32, 64 or 128 tokens and one to three instructions. All seven competitors for a seed receive the same training examples. Six controls comprise fixed recurrent depths one through four, uniform random recurrent depth, and a four-layer decoder with independent weights and reduced width to approximately match parameters. The adaptive model pays 0.012 nats per expected pass. On separate development data, its hard-exit threshold targets 2.5 passes; each resulting threshold is then frozen across test lengths.
+
+\topic{Fair-cost frontier.} For each seed we maximize baseline accuracy subject to the adaptive model's estimated mean inference FLOPs. The comparison admits any input-independent mixture of two fixed policies. A cheap fixed policy dominates if it is already more accurate and fits under budget. Because frontier construction selects among fixed models using measured accuracies, the finite-test estimate can favor the baseline. The files also contain the individual fixed points and forced exits. Training equality is assessed separately against the shared four-pass model that processes identical examples and nearly identical arithmetic.
+
+\topic{Measurement.} One matrix multiply-add counts as two FLOPs. Training estimates use three times the counted forward matrix operations. Dense-square attention estimates, filtering, synchronization, gates, tensor copies, optimizer work and memory bandwidth affect the relationship between these estimates and device time. Counts are specific to each implementation. The factorial benchmark reports linear multiply-adds (MACs). We do not combine its cost axis with Transformer FLOPs. Reported timings describe the reference hardware under shared load.
+
+\topic{Distribution shifts and intervention.} The length-only test holds instruction counts in the training range and evaluates 256, 512 and 1,024 tokens. A separate test raises instruction counts to four through six at length 64. The ID set has 576 examples, the shifted sets 96 per condition. Reassigning the observed exits within each length preserves the marginal depth and estimated work and tests whether the original input received a particularly useful exit.
+\newpage
+\input{reasoning-results.tex}
+\newpage
+\section*{4\quad What the individual mechanisms learn}
+\topic{E2. Grouping.} Sixteen observed symbol/value records precede a query. Twelve symbols have four hidden family identities, and each family shares a freshly sampled value within an episode. No family labels enter training. A writer maps records to slots and a learned reader predicts the query value. Only the query target contributes to the conditional perplexity (PPL) below. Random type assignments, adjacent segments and a fixed stride preserve the same number of slots.
+\begin{center}
+\begin{tabular}{rrrrrr}\toprule
+Slots & Learned PPL & Random & Adjacent & Stride & Learned ARI\\\midrule
+2 & 1.915 & 2.244 & 2.417 & 2.413 & 0.382\\
+4 & 1.156 & 1.689 & 2.013 & 2.000 & 0.814\\
+8 & 1.038 & 1.183 & 1.528 & 1.528 & 1.000\\\bottomrule
+\end{tabular}
+\end{center}
+At four slots the learned writer reduced log loss by 0.377 nats against the strongest compressed control; the paired difference was $-0.377$ [$-0.802$, $+0.048$]. ARI is the label-invariant adjusted Rand index. Replacing the entire unseen suffix, including the answer, left the predictions unchanged. Four histogram slots used 256 bytes against 1,024 for sixteen slots of the same type. Sixteen packed raw records need only 32 bytes. The slot reduction does not establish physical memory savings against a compact representation.
+
+\topic{E3. Experts.} Four two-layer experts learned modular addition, a bracket-stack query, copying and substitution from examples carrying task markers. Expected-risk top-one routing reached 100\% exact accuracy with 632 active parameters. Standard top-one routing reached 99.80\% with 632. Random routing reached 100\% with 556, and dense execution reached 100\% with 2,224. Learned-minus-standard accuracy was $+0.20$ percentage points (pp) [$-0.65$,$+1.04$]. Learned routes contained 0.234 bits of information about task identity. Cycling each choice to another expert reduced mean accuracy to 84.15\%. The finite task support admits interpolation, and uniform routing already solved the task.
+
+\topic{E4. Retention.} An advance cue identifies which four colored records can be queried. At test the cue favors rare training colors and the relevant records move to the oldest quarter. With a four-entry limit and 32 input records, learned retention reached 100\%, uniform stride 18.26\% and a recent window 6.28\%. Randomly permuting learned priorities reduced recall to 18.15\%. Learned minus stride was $+81.74$ pp [79.62,83.85]. An explicit cue-matching rule also reached 100\%, using 12 cache bytes against 28 for learned retention, which also requires 325 model parameters.
+
+A separately frozen follow-up used 1,024 records. Learned retention, cue matching and vectorized full attention recovered every query. Their retained arrays used 28, 12 and 3,072 bytes, respectively. Reference timings were 2,704, 60 and 66 microseconds per query. Python streaming versus vectorized dense execution strongly affects these timings. The experiment holds the number of relevant records fixed as the stream grows.
+\newpage
+\section*{5\quad Do the four mechanisms reinforce each other?}
+\topic{E5. Factorial design.} A noisy four-dimensional header describes which bank of symbols to retain, which pair to combine, which transformation applies and how many repetitions the task requires. The model predicts one of four output classes. Header information is available before symbol storage begins. The controller receives answer supervision only. The design deliberately makes the computation choices identifiable and provides an informed human policy with access to the generator's rules.
+
+All $2^4$ configurations and the human policy received 240 batches of 64 examples per seed. Every factorial cell averaged exactly two hard recurrent steps. Fixed cells use two steps for each input. Learned-depth cells assign one step to half of a 64-example cohort and three to the rest. All train through enumeration of possible paths. Hard inference executes a single choice at each decision. In the four-head accounting convention each factorial cell uses 1,568 linear MACs per prediction. Removing unused controller work gives deployment costs from 1,440 to 1,568.
+\begin{center}
+\begin{tabular}{lrr@{\qquad}lrr}\toprule
+Cell & Accuracy & MACs & Cell & Accuracy & MACs\\\midrule
+Fixed & 35.51\% & 1,440 & D+G & 57.82\% & 1,536\\
+D & 36.21\% & 1,520 & D+R & 42.07\% & 1,536\\
+G & 56.64\% & 1,520 & D+M & 57.39\% & 1,536\\
+R & 41.68\% & 1,520 & G+M & 100.00\% & 1,536\\
+M & 59.06\% & 1,520 & D+G+R+M & 91.17\% & 1,568\\
+ & & & Informed policy & 99.84\% & 1,456\\\bottomrule
+\end{tabular}
+\end{center}
+\captext{Mean of three training seeds on 4,096 shared examples. D = depth, G = grouping, R = expert routing, M = memory. MACs are the optimized linear arithmetic counts. The complete sixteen-cell table accompanies the paper.}
+
+The registered full-model superadditivity contrast, $A_{DGRM}-\sum_i A_i+3A_0$, was $+4.09$ pp [$-5.90$,$+14.09$]. The six secondary pairwise contrasts were averaged over the remaining two factors. Grouping $\times$ memory yielded $+15.97$ pp [11.10,20.85], without adjustment for multiple comparisons. Grouping and memory together reached 100\% for all seeds and cost less than the full controller. A post-factorial static MLP received the complete input and used 1,556 MACs. At a matched estimated training budget it reached 30.18\% on 8,192 new cases, while grouping plus memory reached 100\%. The hand-designed policy remained highly competitive.
+
+\topic{E6. Interventions.} Permuting full action tuples within cohorts preserved the joint histogram and reduced accuracy by 50.75 pp [32.93,68.57]. Permuting grouping alone cost 32.74 pp [23.42,42.06]; permuting memory alone cost 32.35 pp [23.94,40.76]. The depth-only effect was 4.13 pp [$-3.34$,$+11.61$]. Routing collapsed to one expert in two seeds. The evidence is strongest for which information is retained and combined.
+\newpage
+\input{scale-results.tex}
+\newpage
+\input{language-results.tex}
+\newpage
+\input{prototype-results.tex}
+\newpage
+\section*{9\quad Interpretation and prior work}
+Adaptive depth has direct precedents. Graves learned recurrent halting and evaluated character-level language modeling. The Universal Transformer combined recurrent self-attention with adaptive halting. PonderNet optimized a distribution over stopping steps, while Mixture-of-Depths selected positions for computation under a budget. A 2026 preprint on token-selective attention directly includes Tiny Shakespeare. These designs and baselines make a first-invention claim for learned depth untenable. A matched comparison with their full implementations would be needed for a competitive methods paper. \source{https://arxiv.org/abs/1603.08983}{Graves (2016)}, \source{https://arxiv.org/abs/1807.03819}{Dehghani et al. (2019)}, \source{https://arxiv.org/abs/2107.05407}{Banino et al. (2021)}, \source{https://arxiv.org/abs/2404.02258}{Raposo et al. (2024)}, \source{https://arxiv.org/abs/2605.05222}{Mohammed (2026)}.
+
+Conditional specialists have mature comparators in sparsely gated experts and Switch Transformers. Token Merging combines existing visual tokens, H-Net learns sequential chunking for byte-level language modeling, and HiT learns grouping and ungrouping for image diffusion. Dynamic Memory Compression learns cache compression in pretrained language models. Mixture of Nested Experts jointly varies token priority and expert compute. These methods address overlapping parts of the broader MORPH proposal under different architectures and tasks. This targeted literature check establishes relevant precedent. A systematic novelty review remains open. \source{https://arxiv.org/abs/1701.06538}{Shazeer et al. (2017)}, \source{https://arxiv.org/abs/2101.03961}{Fedus et al. (2022)}, \source{https://arxiv.org/abs/2210.09461}{Bolya et al. (2023)}, \source{https://arxiv.org/abs/2507.07955}{Hwang et al. (2025)}, \source{https://arxiv.org/abs/2611.22962}{Wu et al. (2026)}, \source{https://arxiv.org/abs/2403.09636}{Nawrot et al. (2024)}, \source{https://arxiv.org/abs/2407.19985}{Jain et al. (2024)}.
+
+\topic{Scope of the evidence.} Three seeds distinguish catastrophic instability from consistent behavior in these runs, but have limited power for small effects. Some tasks deliberately provide a cue or task marker and repeatedly sample a finite input space. A loss surface that favors one exit can teach a controller to ignore its input. Targeting a mean depth on development data can restore variation without proving that the variation helps. This is why the shuffle interventions and strong fixed controls are central to interpretation. A 100M-parameter fit with few training tokens is evidence of engineering feasibility, with little bearing on language-model scaling at convergence.
+
+\topic{Reproducibility and credit.} Joseph Defendre proposed MORPH, its research questions and the experimental roadmap. AI coding assistance implemented the experiments, ran the analyses and prepared this local manuscript. The companion repository contains the frozen protocols, generator code, model weights, seed-level measurements, post-hoc extensions and reconstruction commands. The language loop adapts Andrej Karpathy's autoresearch procedure to Apple MLX. This report has not undergone external peer review. \source{https://github.com/karpathy/autoresearch/tree/228791fb499afffb54b46200aca536f79142f117}{Autoresearch source and revision}.
+\end{document}
