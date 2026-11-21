@@ -1,0 +1,3 @@
+# Keep downloaded corpus bytes identical to the registered SHA-256 on every checkout.
+lm/data/input.txt -text
+lm_followup/data/source.txt -text
