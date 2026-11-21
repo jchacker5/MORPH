@@ -1,0 +1,12 @@
+{
+  "frontier_learned_cells_mean_accuracy_vs_compact_macs": [
+    "fixed",
+    "M",
+    "GM"
+  ],
+  "aggregate_train_seconds": 20.184058542829007,
+  "total_nominal_train_linear_macs": 40007761920,
+  "trained_examples_all_models": 783360,
+  "test_examples_common": 4096,
+  "num_fits": 51
+}

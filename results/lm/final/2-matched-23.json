@@ -1,0 +1,29 @@
+{
+  "mode": "2",
+  "seed": 23,
+  "lr": 0.002,
+  "cost": 0.02,
+  "bias": 0.0,
+  "steps": 692,
+  "seconds": 11.960939582902938,
+  "input_bytes": 708608,
+  "scored_train_bytes": 531456,
+  "train_flops": 966518636544.0,
+  "training_peak_mlx_bytes": 48282380,
+  "last_loss": 2.4103877544403076,
+  "parameters": 117696,
+  "test": {
+    "bpb": 3.528254590479855,
+    "histogram": [
+      0,
+      2323,
+      0,
+      0
+    ],
+    "examples": 2323,
+    "scored_bytes": 111504,
+    "mean_depth": 2.0,
+    "inference_flops_per_window": 29097984.0
+  },
+  "batch1_median_ms": 6.711896043270826
+}

@@ -1,0 +1,92 @@
+{
+  "protocol_sha256": "46f173a7593497b1128b59c01e5dd3b4af6da2807aebb3c4baa35272f4775794",
+  "rows": {
+    "grouping": 42,
+    "routing": 12,
+    "memory": 180
+  },
+  "seeds": [
+    11,
+    29,
+    47
+  ],
+  "grouping_strongest": "random",
+  "grouping_logloss_learned_minus_baseline": {
+    "per_seed": [
+      -0.5691068656742573,
+      -0.2413085401058197,
+      -0.3203243911266327
+    ],
+    "mean": -0.37691326563556987,
+    "low": -0.8018726434247836,
+    "high": 0.048046112153643905
+  },
+  "routing_accuracy_risk_minus_switch": {
+    "per_seed": [
+      0.0,
+      0.0,
+      0.005859375
+    ],
+    "mean": 0.001953125,
+    "low": -0.006450493612791918,
+    "high": 0.010356743612791918
+  },
+  "routing_accuracy_risk_minus_random": {
+    "per_seed": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "mean": 0.0,
+    "low": 0.0,
+    "high": 0.0
+  },
+  "risk_accuracy_natural_minus_cyclic": {
+    "per_seed": [
+      0.25830078125,
+      0.1103515625,
+      0.10693359375
+    ],
+    "mean": 0.15852864583333334,
+    "low": -0.056155759283759515,
+    "high": 0.37321305095042623
+  },
+  "memory_strongest_nonoracle": "stride",
+  "memory_accuracy_learned_minus_baseline": {
+    "per_seed": [
+      0.8212890625,
+      0.8232421875,
+      0.8076171875
+    ],
+    "mean": 0.8173828125,
+    "low": 0.7962341694387538,
+    "high": 0.8385314555612462
+  },
+  "memory_accuracy_learned_minus_permuted": {
+    "per_seed": [
+      0.8212890625,
+      0.8173828125,
+      0.81689453125
+    ],
+    "mean": 0.8185221354166666,
+    "low": 0.8125387563415071,
+    "high": 0.8245055144918262
+  },
+  "routing_exploratory_mean_task_conditional_total_variation_after_best_expert_relabeling": {
+    "risk": [
+      0.1826171875,
+      0.2080078125,
+      0.2783203125
+    ],
+    "random": [
+      0.03369140625,
+      0.0341796875,
+      0.02392578125
+    ],
+    "switch": [
+      0.23486328125,
+      0.25537109375,
+      0.20556640625
+    ]
+  }
+}

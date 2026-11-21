@@ -1,0 +1,57 @@
+{
+  "mode": "adaptive",
+  "seed": 37,
+  "lr": 0.002,
+  "cost": 0.02,
+  "bias": 0.0,
+  "steps": 320,
+  "seconds": 10.224476833012886,
+  "input_bytes": 327680,
+  "scored_train_bytes": 245760,
+  "train_flops": 966376488960.0,
+  "training_peak_mlx_bytes": 101996932,
+  "last_loss": 2.5884928703308105,
+  "parameters": 117793,
+  "test": {
+    "bpb": 3.622360856262935,
+    "histogram": [
+      2323,
+      0,
+      0,
+      0
+    ],
+    "examples": 2323,
+    "scored_bytes": 111504,
+    "mean_depth": 1.0,
+    "inference_flops_per_window": 15728832.0
+  },
+  "threshold_sensitivity": {
+    "0.35": {
+      "bpb": 3.622360856262935,
+      "histogram": [
+        2323,
+        0,
+        0,
+        0
+      ],
+      "examples": 2323,
+      "scored_bytes": 111504,
+      "mean_depth": 1.0,
+      "inference_flops_per_window": 15728832.0
+    },
+    "0.65": {
+      "bpb": 3.622360856262935,
+      "histogram": [
+        2323,
+        0,
+        0,
+        0
+      ],
+      "examples": 2323,
+      "scored_bytes": 111504,
+      "mean_depth": 1.0,
+      "inference_flops_per_window": 15728832.0
+    }
+  },
+  "batch1_median_ms": 7.563374936580658
+}

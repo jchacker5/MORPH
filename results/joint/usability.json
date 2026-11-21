@@ -1,0 +1,12 @@
+{
+  "checkpoint": "results/joint/gm_seed41.npz",
+  "checkpoint_sha256": "3f17486872f1b53df222f9c90e81b7f5947e64e9ea4a452e13f97499617eb503",
+  "replayed_original_accuracy": 1.0,
+  "replayed_original_nll": 0.017547540366649628,
+  "fresh_seed": 774123,
+  "fresh_n": 10000,
+  "fresh_correct": 9999,
+  "fresh_accuracy": 0.9999,
+  "single_vs_batched_matches": 128,
+  "usage_protocol_sha256": "b573d8d205a78792d98359a50eec62ed2e61cb09eff7d87843346ae07b9c4589"
+}

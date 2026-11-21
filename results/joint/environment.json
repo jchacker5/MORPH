@@ -1,0 +1,14 @@
+{
+  "protocol_sha256": "bbd8effd476205d54be6163dd798ed887fa2a049c6536dbf5ec2982a4bbbeb2c",
+  "source_sha256": "de1a71d3f2e95b59568f361ade4dd8138cca0d0073503b8e49559e3bd4bfd5cb",
+  "numpy": "2.5.5",
+  "mlx": "0.32.4",
+  "device": "Device(cpu, 0)",
+  "os": "macOS-27.0.1-arm64-arm-64bit",
+  "training_seeds": [
+    41,
+    42,
+    43
+  ],
+  "test_seed": 910274
+}
