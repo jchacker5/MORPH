@@ -28,7 +28,7 @@ Use the project Python environment from the project root. The first command need
 
 The classifier example predicts class 1. The Boolean CLI includes the interpreter's ground truth alongside the model's prediction. The byte LM performs autoregressive sampling with a rolling 64-byte context. Every additional byte can require a fresh forward pass. The gate looks at up to 16 bytes at the start of that window. Short prompts use all available prompt bytes for the initial decision.
 
-The first three lines of the five-minute model's fixed sample were:
+The five-minute model produced this opening with the specified prompt and seed.
 
 ```text
 To be, or not to be;
@@ -45,3 +45,8 @@ The scientific design distinguishes an adaptive training criterion from input-de
 
 Tiny Shakespeare is pinned to char-rnn revision 6f9487a6fe5b420b7ca9afb0d7c078e37c1d1b4e with contiguous 80/10/10 byte splits. The Sonnets edition is pinned to GITenberg revision b6da8a3e73e7081cf71c57e930001d0b92a8f644. Input bytes map to 256 output classes. The synthetic generators explicitly encode the cues and instruction vocabularies in each suite's documented format. There is no natural-language interface for the associative or Boolean classifiers.
 
+## The 30M prototype
+
+The retained seed-11 adaptive model has 30,321,217 parameters and a 121,286,138-byte FP32 master-weight file. It uses 16 self-attention heads and has four possible exit depths. It saw 524,288 input byte presentations at the 2,048-update endpoint. It used four passes on all 2,323 held-out play windows, scoring 3.868 BPB. The smoothed bigram scored 3.625 and the three-byte-history predictor 2.908. The engineering prototype runs locally, but this training budget failed the practical predictive target. Its parameter count alone did not make it a useful language assistant.
+
+The three-seed small-model comparison and the 30M fixed-depth comparisons are in [the paper](paper/MORPH.pdf) and [the per-seed results](results/prototype_controls/). The five-minute model used much more training data than the large prototype, so their difference does not isolate an effect of scale.
