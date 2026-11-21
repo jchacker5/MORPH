@@ -11,7 +11,7 @@
 | [Adaptive Boolean interpreter](results/reasoning/qualified-adaptive-reasoning-seed17.safetensors) | Inspect the returned prediction and actual number of recurrent passes | 1,087/1,152 correct at training-range lengths and 56.25% at 1,024. It missed the 95% accuracy qualification. |
 | [Four-slot recall model](results/mechanisms/recall-seed11-k4.npz) | Retrieve a value for a queried key when exactly four prior records match a known cue | Reached 100% exact recall across the tested cue and position shifts. A 12-byte deterministic cue cache matched it. |
 | [Five-minute byte LM](results/lm_followup/capstone.safetensors) | Predict bytes or generate short Shakespeare-like continuations locally | 2.789 bits/byte on plays and 2.491 on sonnets. All evaluated windows used one pass. The three-byte-history predictor scored 2.908 and 2.430 respectively. |
-| [30M byte LM](results/lm/prototype/adaptive-11-2048.safetensors) | Run the larger experimental recurrent decoder; inspect the research-scale comparison | See the 30M results below. |
+| [30M byte LM](results/lm/prototype/adaptive-11-2048.safetensors) | Run the larger experimental recurrent decoder and inspect the research-scale comparison | See the 30M results below. |
 
 The narrow classifier and next-byte results demonstrate that useful models can be trained on this laptop. No checkpoint was instruction-tuned or tested for conversation, factual answering, or general-purpose assistance.
 
@@ -47,6 +47,6 @@ Tiny Shakespeare is pinned to char-rnn revision 6f9487a6fe5b420b7ca9afb0d7c078e3
 
 ## The 30M prototype
 
-The retained seed-11 adaptive model has 30,321,217 parameters and a 121,286,138-byte FP32 master-weight file. It uses 16 self-attention heads and has four possible exit depths. It saw 524,288 input byte presentations at the 2,048-update endpoint. It used four passes on all 2,323 held-out play windows, scoring 3.868 BPB. The smoothed bigram scored 3.625 and the three-byte-history predictor 2.908. The engineering prototype runs locally, but this training budget failed the practical predictive target. Its parameter count alone did not make it a useful language assistant.
+The retained seed-11 adaptive model has 30,321,217 parameters and a 121,286,138-byte FP32 master-weight file. It uses 16 self-attention heads and has four possible exit depths. It saw 524,288 input byte presentations at the 2,048-update endpoint. It used four passes on all 2,323 held-out play windows, scoring 3.868 BPB. On the independent sonnets it also used all four passes and scored 3.769 BPB. Independently trained fixed one- and two-pass models reached 3.641 and 3.628 there. On the plays, the smoothed bigram scored 3.625 and the three-byte-history predictor 2.908. The engineering prototype runs locally, but this training budget failed the practical predictive target. Its parameter count alone did not make it a useful language assistant.
 
 The three-seed small-model comparison and the 30M fixed-depth comparisons are in [the paper](paper/MORPH.pdf) and [the per-seed results](results/prototype_controls/). The five-minute model used much more training data than the large prototype, so their difference does not isolate an effect of scale.

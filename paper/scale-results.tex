@@ -8,6 +8,6 @@ Params & MORPH, \% & Fixed 1 & Fixed 2 & Fixed 3 & Fixed 4 & Train TFLOPs\\\midr
 \bottomrule\end{tabular}\end{center}
 \captext{Accuracy values are percentages on the controlled synthetic task. The last column is adaptive training arithmetic per fit. At each width the fixed-four model closely matches both the adaptive model's trainable parameters and its training arithmetic. Fixed one through four locate its inference frontier.}
 \begin{center}\includegraphics[width=.93\linewidth]{figures/scaling.pdf}\end{center}
-\captext{Figure 2. Adaptive accuracy minus the best feasible fixed model or input-independent fixed mixture. Points are paired training seeds. Teal lines indicate means; zero indicates parity.}
+\captext{Figure 2. Adaptive accuracy minus the best feasible fixed model or input-independent fixed mixture. Points are paired training seeds. Teal lines indicate means. Zero indicates parity.}
 \topic{Primary comparison.} The respective gains in percentage points at the three sizes were +3.65 [$-$30.00, +37.29], +3.91 [$-$1.23, +9.04], $-$5.73 [$-$33.81, +22.35]. On the original 16-update ladder adaptive accuracy was 46.88\%, 51.04\%, 50.00\%. Different test drawings and training schedules make the two ladders unsuitable for estimating a causal effect of training duration.
 \input{scale-sensitivity.tex}

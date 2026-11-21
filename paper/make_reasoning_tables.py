@@ -23,14 +23,14 @@ def main_section():
         r" pp. The chance-level pilot motivated a separately frozen follow-up. All seven models were reinitialized, used new training and evaluation draws, and received 2,400 updates of 24 examples with learning-rate warmup, decay and clipping.",
         r"The untied 50,018-parameter decoder reached 98.78\% at 11.01 MFLOPs per input. Random depth reached 95.66\% at 23.30 MFLOPs. Adaptive reached 85.53\% at 23.38 MFLOPs. This last pair comes closest to an equal-cost direct comparison.",
         r"\begin{center}\includegraphics[width=.97\linewidth]{figures/reasoning.pdf}\end{center}",
-        r"\captext{Figure 1. Mean of three paired seeds after longer training. Numbers mark fixed recurrent depths; faint points at left are individual adaptive, random and untied seeds. ID lengths use 1--3 instructions.}",
+        r"\captext{Figure 1. Mean of three paired seeds after longer training. Numbers mark fixed recurrent depths. Faint points at left are individual adaptive, random and untied seeds. ID lengths use 1--3 instructions.}",
         r"\begin{center}\small\begin{tabular}{lrrrr}\toprule",
         row(["Test condition","MORPH, \\%","Fixed two, \\%","Passes","Gain vs. fixed frontier, pp"])+r"\midrule"]
     for key in ["id","id64","length256","length512","length1024","composition64"]:
         lines.append(row([label(key),pct(a,key),pct(m['fixed2'],key),f"{a[key]['depth']['mean']:.2f}",interval(c[key]['frontier_gain_pp'])]))
     lines += [r"\bottomrule\end{tabular}\end{center}",
         r"\topic{E6--7.} Reassigning the observed exits across inputs of the same length changed accuracy. The original-minus-shuffled difference on pooled ID examples was "+interval(a['id']['shuffle_gain_pp'])+
-        r" pp. Depth--instruction-count rank correlations were $-0.116$, $-0.019$ and $-0.071$ across seeds. Comparing the 64-token rows isolates instruction count; the longer rows change only length.",
+        r" pp. Depth--instruction-count rank correlations were $-0.116$, $-0.019$ and $-0.071$ across seeds. Comparing the 64-token rows isolates instruction count. The longer rows change only length.",
         r"\topic{Qualification.} In a separate 8,000-update, seed-17 run on 14,293,248 token presentations, adaptive scored 1,087/1,152 (94.36\%) and fixed two scored 1,136/1,152 (98.61\%). Only fixed two passed the prespecified ID criterion. Their 1,024-token accuracies were 56.25\% and 65.63\%, respectively. Neither passed the shift criterion. Fixed two consumed 10.54 estimated training TFLOPs against 21.08 for adaptive."]
     (HERE/"reasoning-results.tex").write_text("\n".join(lines).replace("\n\n"+" & ","\n"+" & ")+"\n")
 
@@ -46,7 +46,7 @@ def scale_section():
     lines += [r"\bottomrule\end{tabular}\end{center}",
         r"\captext{Accuracy values are percentages on the controlled synthetic task. The last column is adaptive training arithmetic per fit. At each width the fixed-four model closely matches both the adaptive model's trainable parameters and its training arithmetic. Fixed one through four locate its inference frontier.}",
         r"\begin{center}\includegraphics[width=.93\linewidth]{figures/scaling.pdf}\end{center}",
-        r"\captext{Figure 2. Adaptive accuracy minus the best feasible fixed model or input-independent fixed mixture. Points are paired training seeds. Teal lines indicate means; zero indicates parity.}",
+        r"\captext{Figure 2. Adaptive accuracy minus the best feasible fixed model or input-independent fixed mixture. Points are paired training seeds. Teal lines indicate means. Zero indicates parity.}",
         r"\topic{Primary comparison.} The respective gains in percentage points at the three sizes were "+", ".join(interval(v['adaptive_comparison']['id']['frontier_gain_pp']) for v in j.values())+
         r". On the original 16-update ladder adaptive accuracy was "+", ".join(pct(v['model']['adaptive'],'id')+r"\%" for v in p.values())+
         r". Different test drawings and training schedules make the two ladders unsuitable for estimating a causal effect of training duration.",
