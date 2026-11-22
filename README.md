@@ -3,6 +3,8 @@
 
 **Joseph Defendre · Research report · November 21, 2026**
 
+[![CPU smoke check](https://github.com/jchacker5/MORPH/actions/workflows/smoke.yml/badge.svg)](https://github.com/jchacker5/MORPH/actions/workflows/smoke.yml)
+
 MORPH tests whether learning how much computation to spend, which inputs to group, which expert to use, and which records to retain improves predictive quality at a matched cost. This independent project includes eight experimental questions, locally trained weights, protocols and seed-level results.
 
 The grouping-and-memory classifier scored **9,999/10,000** on fresh examples from its synthetic task. On Boolean reasoning, the learned-depth Transformer scored **85.53%** and the random-depth baseline scored **95.66%** at training-range lengths in the 2,400-update follow-up, averaged over three seeds. Both scored 50.46% in the initial 120-update pilot. The study found a narrow use for learned organization and a strong reason to keep testing simple controls.
@@ -31,7 +33,7 @@ uv pip install --python .venv/bin/python -r requirements.txt
 
 ## Contribute
 
-Replications, counterexamples and failed experiments are welcome. Start with an independent replay of the CPU classifier, or test whether the learned grouping survives noisier inputs. [Contributor guide](CONTRIBUTING.md) · [Open research issues](https://github.com/jchacker5/MORPH/issues)
+Replications, counterexamples and failed experiments are welcome. Start with an independent replay of the CPU classifier, or test whether the learned grouping survives noisier inputs. [Contributor guide](CONTRIBUTING.md) · [Open research issues](https://github.com/jchacker5/MORPH/issues) · [Discussions](https://github.com/jchacker5/MORPH/discussions)
 
 Joseph Defendre licenses the original code and weights under MIT and the paper and original results under CC BY 4.0. Separate terms apply to the bundled corpora and fonts. [License details](LICENSING.md) · [Third-party notices](THIRD_PARTY.md) · [Citation](CITATION.cff)
 
