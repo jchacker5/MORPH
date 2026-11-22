@@ -38,3 +38,5 @@ For a new experiment, write down the question, baseline, metric, compute budget 
 Use a fresh directory for training so another researcher can still check the published result. Keep follow-up protocols and outputs alongside a link to the original comparison. The [reproduction guide](README.md) gives the staging command and entry points for each experiment.
 
 Contributed code and weights use MIT. Original paper edits and original experimental results use CC BY 4.0. Please identify the source and terms of any third-party material in a proposed change. [License details](LICENSING.md)
+
+Participation is covered by the [Code of Conduct](CODE_OF_CONDUCT.md). Use [Discussions](https://github.com/jchacker5/MORPH/discussions) for questions or to propose an experiment before running it.
