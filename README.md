@@ -5,7 +5,7 @@
 
 MORPH tests whether learning how much computation to spend, which inputs to group, which expert to use, and which records to retain improves predictive quality at a matched cost. This independent project includes eight experimental questions, locally trained weights, protocols and seed-level results.
 
-The grouping-and-memory classifier scored **9,999/10,000** on fresh examples from its synthetic task. On Boolean reasoning, the learned-depth Transformer scored **85.53%** and the random-depth baseline scored **95.66%** at training-range lengths in the primary run. The study found a narrow use for learned organization and a strong reason to keep testing simple controls.
+The grouping-and-memory classifier scored **9,999/10,000** on fresh examples from its synthetic task. On Boolean reasoning, the learned-depth Transformer scored **85.53%** and the random-depth baseline scored **95.66%** at training-range lengths in the 2,400-update follow-up, averaged over three seeds. Both scored 50.46% in the initial 120-update pilot. The study found a narrow use for learned organization and a strong reason to keep testing simple controls.
 
 - [Read the paper](paper/MORPH.pdf), [view the manuscript](paper/MORPH.tex) or [read the model card](MODEL_CARD.md).
 - [Download the replication package](https://github.com/jchacker5/MORPH/releases/download/v0.1.0/MORPH-replication.zip) for the source, inputs, results and all 12 saved checkpoints. [Release and individual downloads](https://github.com/jchacker5/MORPH/releases/tag/v0.1.0) · [SHA-256 checksums](https://github.com/jchacker5/MORPH/releases/download/v0.1.0/SHA256SUMS)
@@ -37,7 +37,7 @@ Joseph Defendre licenses the original code and weights under MIT and the paper a
 
 ## Reproduce the study
 
-Training and scoring use Python 3.12.12 and locked dependencies. The Transformer experiments ran on Apple MLX on an M4 with 32 GiB of unified memory. The mechanism and factorial probes used CPU execution. From the project root, stage a fresh research directory to preserve the archived results. This copies code, local data and original protocol/selection records. It leaves completed fits and weights out of the new run, so the launchers can train from scratch. Use the new directory as the working directory for the following commands, with the original virtual environment or a new one built from the same requirements.
+Training and scoring use Python 3.12.12 and locked dependencies. The Transformer experiments ran on Apple MLX on an M4 with 32 GiB of unified memory. The mechanism and factorial probes used CPU execution. From the project root, stage a fresh research directory to preserve the archived results. This copies code, local data and original protocol/selection records. It retains the original discovery records and omits final fit outputs and weights so the launchers can train from scratch. Use the new directory as the working directory for the following commands, with the original virtual environment or a new one built from the same requirements.
 
 ```sh
 .venv/bin/python reproduce.py ../MORPH-replication

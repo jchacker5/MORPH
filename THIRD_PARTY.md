@@ -16,7 +16,7 @@ The external evaluation corpus is William Shakespeare's *Sonnets*, Project Guten
 
 The language-model search adapts Andrej Karpathy's fixed-duration, validation-driven autoresearch procedure. MORPH provides its own MLX trainer, tasks and scoring code. The upstream README identifies the project as MIT licensed. [Pinned autoresearch program](https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/program.md) · [Upstream README](https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/README.md)
 
-The MIT notice for material from the two Karpathy repositories is reproduced in [LICENSES/Karpathy-MIT.txt](LICENSES/Karpathy-MIT.txt).
+The standard MIT terms with project-supplied attribution to the Karpathy repositories are in [LICENSES/Karpathy-MIT.txt](LICENSES/Karpathy-MIT.txt).
 
 ## Figure fonts
 
