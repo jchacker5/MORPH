@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Please cite Joseph Defendre and the version of MORPH you used."
+title: "MORPH: Learning to Organize Computation in Neural Networks"
+type: software
+authors:
+  - given-names: Joseph
+    family-names: Defendre
+version: 0.1.0
+date-released: 2026-11-22
+repository-code: "https://github.com/jchacker5/MORPH"
+url: "https://github.com/jchacker5/MORPH/releases/tag/v0.1.0"
+license: MIT
+preferred-citation:
+  type: report
+  title: "MORPH: Learning to Organize Computation in Neural Networks"
+  authors:
+    - given-names: Joseph
+      family-names: Defendre
+  year: 2026
+  date-published: 2026-11-22
+  url: "https://github.com/jchacker5/MORPH/releases/download/v0.1.0/MORPH.pdf"

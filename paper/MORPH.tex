@@ -22,6 +22,7 @@
 {\fontsize{27}{31}\selectfont\bfseries\raggedright\color{ink}MORPH: Learning to Organize\\Computation in Neural Networks\par}
 \vspace{5pt}{\large Joseph Defendre}\par
 \textit{Meta-Optimized Reconfigurable Processing Hierarchy}\par
+{\small\href{https://github.com/jchacker5/MORPH}{Code, weights and results}\quad$\cdot$\quad\href{https://creativecommons.org/licenses/by/4.0/}{Paper and original results: CC BY 4.0}}\par
 \input{abstract.tex}
 \section*{1\quad What would count as evidence?}
 A system that processes different inputs differently may still waste compute. We asked whether a trained policy can improve the accuracy available at a given cost, whether its decisions help the inputs receiving them, and whether those decisions survive a change in task difficulty. These are distinct empirical requirements. Comparing a model only with a deep, uniformly expensive baseline can reward an early exit even when a shallow network solves the task better.
@@ -102,7 +103,7 @@ Conditional specialists have mature comparators in sparsely gated experts and Sw
 
 \topic{Scope of the evidence.} Three seeds distinguish catastrophic instability from consistent behavior in these runs, but have limited power for small effects. Some tasks deliberately provide a cue or task marker and repeatedly sample a finite input space. A loss surface that favors one exit can teach a controller to ignore its input. Targeting a mean depth on development data can restore variation without proving that the variation helps. This is why the shuffle interventions and strong fixed controls are central to interpretation. A 100M-parameter fit with few training tokens is evidence of engineering feasibility, with little bearing on language-model scaling at convergence.
 
-\topic{Reproducibility and credit.} Joseph Defendre proposed MORPH, its research questions and the experimental roadmap. AI coding assistance implemented the experiments, ran the analyses and prepared this local manuscript. An independent clean-directory rerun reproduced all 285 main factorial and mechanism result rows on the checked scientific endpoints. The companion repository contains the frozen protocols, generator code, model weights, seed-level measurements, post-hoc extensions and reconstruction commands. The language loop adapts Andrej Karpathy's autoresearch procedure to Apple MLX. This report has not undergone external peer review. \source{https://github.com/karpathy/autoresearch/tree/228791fb499afffb54b46200aca536f79142f117}{Autoresearch source and revision}.
+\topic{Reproducibility and credit.} Joseph Defendre proposed MORPH, its research questions and the experimental roadmap. AI coding assistance implemented the experiments, ran the analyses and helped prepare the manuscript. An independent clean-directory rerun reproduced all 285 main factorial and mechanism result rows on the checked scientific endpoints. The companion repository contains the frozen protocols, generator code, model weights, seed-level measurements, post-hoc extensions and reconstruction commands. The language loop adapts Andrej Karpathy's autoresearch procedure to Apple MLX. This report has not undergone external peer review. \source{https://github.com/karpathy/autoresearch/tree/228791fb499afffb54b46200aca536f79142f117}{Autoresearch source and revision}.
 \newpage
 \input{systems.tex}
 \end{document}
