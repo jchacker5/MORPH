@@ -1,11 +1,14 @@
 """Generate bytes from a saved recurrent MORPH language model."""
 import argparse
+import math
 from pathlib import Path
 import mlx.core as mx
 from prepare import RESULTS, WINDOW
 from train import Decoder
 
 def generate(weights,prompt,length,temperature,seed,wide=False):
+    if length < 0 or not math.isfinite(temperature) or temperature < 0:
+        raise ValueError("length and temperature must be finite and nonnegative")
     if wide:
         from prototype import WideDecoder
         model=WideDecoder(True)
@@ -33,5 +36,5 @@ if __name__=="__main__":
     p.add_argument("--weights",type=Path)
     a=p.parse_args()
     default=(RESULTS/"adaptive-11.safetensors" if a.small else RESULTS/"prototype/adaptive-11-2048.safetensors")
-    if a.bytes<0 or a.temperature<0: p.error("bytes and temperature must be nonnegative")
+    if a.bytes<0 or not math.isfinite(a.temperature) or a.temperature<0: p.error("bytes and temperature must be nonnegative")
     print(generate(a.weights or default,a.prompt,a.bytes,a.temperature,a.seed,not a.small).decode("utf-8",errors="replace"))
