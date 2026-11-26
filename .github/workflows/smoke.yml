@@ -1,4 +1,4 @@
-name: CPU smoke check
+name: CPU verification
 
 on:
   push:
@@ -18,6 +18,10 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install 'numpy==2.5.5'
+      - name: Input validation, replication integrity, and frozen checkpoint replay
+        run: python -m unittest discover -s tests -v
+      - name: Publish the NumPy replay receipt in the job log
+        run: python joint/replay_cpu.py
       - name: Saved classifier predicts the documented example
         run: |
           out=$(python joint/infer.py --header 2 0 0 0 --tokens 0 1 2 3 2 0 3 1 --query 1)

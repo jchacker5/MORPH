@@ -12,7 +12,18 @@ uv pip install --python .venv/bin/python 'numpy==2.5.5'
 .venv/bin/python joint/infer.py --header 2 0 0 0 --tokens 0 1 2 3 2 0 3 1 --query 1
 ```
 
-Expect class `1`, retained bank `1`, pair layout `1`, expert `1` and two recurrent steps. On an Apple-silicon Mac, the following check also verifies that executing only the selected paths produces the same logits as evaluating every path and selecting afterward.
+Expect class `1`, retained bank `1`, pair layout `1`, expert `1` and two recurrent steps.
+
+The full CPU verification suite exercises malformed replication tables, generation input validation and both banks, layouts and experts of the saved classifier. It also replays the frozen 10,000-example receipt without retraining:
+
+```sh
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python joint/replay_cpu.py
+```
+
+The replay requires the published checkpoint and usage-protocol checksums, 9,999 correct predictions out of 10,000, and agreement with an independent dense reference on the first 128 examples. It verifies inference and the existing receipt, not the training process or out-of-distribution performance. Generating new language-model tokens still requires MLX and the language-model checkpoint; CPU validation does not claim to test that backend.
+
+On an Apple-silicon Mac, the following check also verifies that executing only the selected paths produces the same logits as evaluating every path and selecting afterward:
 
 ```sh
 uv pip install --python .venv/bin/python -r requirements.txt
@@ -25,7 +36,7 @@ View the [open contribution issues](https://github.com/jchacker5/MORPH/issues) t
 
 | Question | A concrete contribution |
 |---|---|
-| Can another machine reproduce the small classifier? | Add a NumPy-only replay of the published 10,000-example draw. Use the existing checkpoint, publish the correct count and compare the first 128 predictions with the batched reference. The original run scored 9,999/10,000. [Usage protocol](joint/usage_check.md) |
+| Can another machine reproduce the small classifier? | Run `python joint/replay_cpu.py` and report the platform, NumPy version and receipt. The frozen 10,000-example draw and independent dense reference run without MLX. The original run scored 9,999/10,000. [Usage protocol](joint/usage_check.md) |
 | When does learning to group and retain records fail? | Vary the noise on the synthetic header while keeping examples paired. Compare the bank and pair choices of the grouping-and-memory checkpoint with the choices decoded by the known header transform. Report disagreement rates and classification accuracy at each noise level. [Data and controller design](docs/joint_protocol.md) |
 | Does the fixed-depth comparison hold with independent model selection? | Select the fixed-depth policy on a validation split, freeze it, then compare it with adaptive depth on fresh Boolean programs at matched estimated cost. The published analysis also reports an envelope selected on held-out outcomes. [Reasoning evaluation](reasoning/README.md) |
 
